@@ -1,0 +1,4 @@
+*.jpg
+!index.php
+!readme.md
+!preview.gif
