@@ -48,7 +48,7 @@ print "<h1>" . str_replace( '/', ' <span>/</span> ', title() ) . "</h1>";
 if ( !empty( $files ) ) {
 
     // open unordered list tag
-    print "<ul>";
+    print "<ul class='popup-gallery'>";
 
     // loop through the files array
     foreach ( $files as $file ) {
@@ -72,5 +72,22 @@ if ( !empty( $files ) ) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
-<script> $(document).ready(function() { $('a').magnificPopup( { type:'image' } ); }); </script>
+<script>
+$(document).ready(function() {
+    $('.popup-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+        }
+    });
+});
+</script>
 </body></html>
