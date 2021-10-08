@@ -54,7 +54,7 @@ if ( !empty( $files ) ) {
     foreach ( $files as $file ) {
 
         // check if the file is an image, and only display images
-        if ( stristr( $file, '.jpg' ) || stristr( $file, '.jpeg' ) || stristr( $file, '.gif' ) || stristr( $file, '.png' ) || stristr( $file, '.webp' ) ) {
+        if ( ( stristr( $file, '.jpg' ) || stristr( $file, '.jpeg' ) || stristr( $file, '.gif' ) || stristr( $file, '.png' ) || stristr( $file, '.webp' ) ) && $file !== 'preview.gif' ) {
             
             // show the file
             print '<a href="./' . $file . '"><li class="' . ext( $file ) . '">' . $file . ( !is_dir( $file ) ? ' <span>' . human_filesize( $file ) . '</span>' : '' ) . '</li></a>';
