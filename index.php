@@ -53,8 +53,12 @@ if ( !empty( $files ) ) {
     // loop through the files array
     foreach ( $files as $file ) {
 
-        // show the file
-        print '<a href="./' . $file . '"><li class="' . ext( $file ) . '">' . $file . ( !is_dir( $file ) ? ' <span>' . human_filesize( $file ) . '</span>' : '' ) . '</li></a>';
+        // check if the file is an image, and only display images
+        if ( stristr( $file, '.jpg' ) || stristr( $file, '.jpeg' ) || stristr( $file, '.gif' ) || stristr( $file, '.png' ) || stristr( $file, '.webp' ) ) {
+            
+            // show the file
+            print '<a href="./' . $file . '"><li class="' . ext( $file ) . '">' . $file . ( !is_dir( $file ) ? ' <span>' . human_filesize( $file ) . '</span>' : '' ) . '</li></a>';
+        }
 
     }
 
